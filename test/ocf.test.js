@@ -2,22 +2,28 @@ var ocf = require('../');
 var should = require('should');
 
 describe('#ocf', function() {
-  it('should return Zip', function(done) {
-    ocf(__dirname + '/fixtures/sample.epub', function(err, container) {
+  it('should return Zip container', function() {
+    ocf(__dirname + '/fixtures/sample.epub').should.be.instanceof(require('../lib/Zip'));
+  });
+});
+
+describe('#open', function() {
+  it('should return Zip async', function(done) {
+    ocf.open(__dirname + '/fixtures/sample.epub', function(err, container) {
       container.should.be.instanceof(require('../lib/Zip'));
       done();
     });
   });
 
-  it('should return Directory', function(done) {
-    ocf(__dirname + '/fixtures/sample', function(err, container) {
+  it('should return Directory async', function(done) {
+    ocf.open(__dirname + '/fixtures/sample', function(err, container) {
       container.should.be.instanceof(require('../lib/Directory'));
       done();
     });
   });
 
-  it('should return Http', function(done) {
-    ocf('http://my.ebooks.service.org/ebook2/', function(err, container) {
+  it('should return Http async', function(done) {
+    ocf.open('http://my.ebooks.service.org/ebook2/', function(err, container) {
       container.should.be.instanceof(require('../lib/Http'));
       done();
     });
@@ -25,19 +31,19 @@ describe('#ocf', function() {
 });
 
 describe('#openSync', function() {
-  it('should return Zip', function() {
+  it('should return Zip sync', function() {
     ocf.openSync(__dirname + '/fixtures/sample.epub').should.be.instanceof(require('../lib/Zip'));
   });
 
-  it('should return Directory', function() {
+  it('should return Directory sync', function() {
     ocf.openSync(__dirname + '/fixtures/sample').should.be.instanceof(require('../lib/Directory'));
   });
 
-  it('should return Http', function() {
+  it('should return Http sync', function() {
     ocf.openSync('http://my.ebooks.service.org/ebook2/').should.be.instanceof(require('../lib/Http'));
   });
 
-  it('https should return Http', function() {
+  it('https should return Http sync', function() {
     ocf.openSync('https://my.ebooks.service.org/ebook2/').should.be.instanceof(require('../lib/Http'));
   });
 });

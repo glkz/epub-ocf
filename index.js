@@ -47,17 +47,22 @@ var openSync = function(uri, options) {
   return zip(uri, options);
 };
 
-module.exports = open;
-module.exports.openSync = openSync;
-
-var dir = module.exports.dir = function(uri, options) {
-  return new DirectoryContainer(uri, options);
-};
-
-var zip = module.exports.zip = function(uri, options) {
+var zip = function(uri, options) {
   return new ZipContainer(uri, options);
 };
 
-var http = module.exports.http = function(uri, options) {
+var dir = function(uri, options) {
+  return new DirectoryContainer(uri, options);
+};
+
+var http = function(uri, options) {
   return new HttpContainer(uri, options);
 };
+
+module.exports = zip;
+module.exports.open = open;
+module.exports.openSync = openSync;
+
+module.exports.zip = zip;
+module.exports.dir = dir;
+module.exports.http = http;
