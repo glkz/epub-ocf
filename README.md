@@ -93,3 +93,7 @@ $ cd epub-ocf
 $ npm install
 $ npm test
 ```
+
+
+## License
+See the [LICENSE](./LICENSE) file.
