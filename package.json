@@ -1,0 +1,15 @@
+{
+  "name": "epub-ocf",
+  "version": "0.0.0",
+  "description": "Read entries from epub containers. Supports zip, directory and http containers.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mustafa Altun <gmail@mustafaaltun.com>",
+  "license": "MIT",
+  "keywords": ["epub", "epub3", "ocf", "zip"],
+  "dependencies": {
+    "extend": "^2.0.0"
+  }
+}
