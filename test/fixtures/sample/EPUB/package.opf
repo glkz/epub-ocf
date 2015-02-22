@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<package xmlns="http://www.idpf.org/2007/opf" xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:dcterms="http://purl.org/dc/terms/" version="3.0" xml:lang="en"
+  unique-identifier="pub-identifier">
+  <metadata>
+    <dc:identifier id="pub-identifier">urn:isbn:9789751111111</dc:identifier>
+    <dc:title id="pub-title">Sample Epub</dc:title>
+    <dc:language id="pub-language">en</dc:language>
+    <dc:date>2015-01-01</dc:date>
+    <meta property="dcterms:modified">2015-02-22T16:30:00Z</meta>
+    <dc:publisher>Foo</dc:publisher>
+  </metadata>
+  <manifest>
+    <item id="toc" properties="nav" media-type="application/xhtml+xml" href="toc.xhtml"/>
+  </manifest>
+  <spine>
+    <itemref idref="toc" linear="yes"/>
+  </spine>
+</package>

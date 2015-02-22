@@ -4,12 +4,22 @@
   "description": "Read entries from epub containers. Supports zip, directory and http containers.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha test/*.test.js"
   },
   "author": "Mustafa Altun <gmail@mustafaaltun.com>",
   "license": "MIT",
-  "keywords": ["epub", "epub3", "ocf", "zip"],
+  "keywords": [
+    "epub",
+    "epub3",
+    "ocf",
+    "zip"
+  ],
   "dependencies": {
     "extend": "^2.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.1.0",
+    "node-static": "^0.7.6",
+    "should": "^5.0.1"
   }
 }
