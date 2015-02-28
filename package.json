@@ -1,6 +1,6 @@
 {
   "name": "epub-ocf",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Read entries from epub containers. Supports zip, directory and http containers.",
   "main": "index.js",
   "scripts": {
