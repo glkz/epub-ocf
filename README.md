@@ -1,5 +1,7 @@
 # epub-ocf
 
+[![Build Status](https://travis-ci.org/glkz/epub-ocf.svg)](https://travis-ci.org/glkz/epub-ocf)
+
 Simple node.js library to read entries inside an epub container.
 
 
