@@ -30,24 +30,6 @@ describe('#open', function() {
   });
 });
 
-describe('#openSync', function() {
-  it('should return Zip sync', function() {
-    ocf.openSync(__dirname + '/fixtures/sample.epub').should.be.instanceof(require('../lib/Zip'));
-  });
-
-  it('should return Directory sync', function() {
-    ocf.openSync(__dirname + '/fixtures/sample').should.be.instanceof(require('../lib/Directory'));
-  });
-
-  it('should return Http sync', function() {
-    ocf.openSync('http://my.ebooks.service.org/ebook2/').should.be.instanceof(require('../lib/Http'));
-  });
-
-  it('https should return Http sync', function() {
-    ocf.openSync('https://my.ebooks.service.org/ebook2/').should.be.instanceof(require('../lib/Http'));
-  });
-});
-
 describe('# Zip container tests', function() {
   containerTests(ocf.zip(__dirname + '/fixtures/sample.epub'));
 });

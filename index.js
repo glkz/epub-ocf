@@ -34,19 +34,6 @@ var open = function(uri, options, cb) {
   });
 };
 
-var openSync = function(uri, options) {
-  if (uri.indexOf('http://') === 0 || uri.indexOf('https://') === 0) {
-    return http(uri, options);
-  }
-
-  var stat = fs.statSync(uri);
-  if (stat.isDirectory()) {
-    return dir(uri, options);
-  }
-
-  return zip(uri, options);
-};
-
 var zip = function(uri, options) {
   return new ZipContainer(uri, options);
 };
@@ -61,7 +48,6 @@ var http = function(uri, options) {
 
 module.exports = zip;
 module.exports.open = open;
-module.exports.openSync = openSync;
 
 module.exports.zip = zip;
 module.exports.dir = dir;

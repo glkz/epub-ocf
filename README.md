@@ -37,18 +37,13 @@ var container = ocf.http('http://my.ebooks.service.org/ebook2/');
 
 ```javascript
 // a Zip container
-ocf.open('path/to/book.epub', function(err, container) {}); 
+ocf.open('path/to/book.epub', function(err, container) {});
 
 // a Directory container
 ocf.open('path/to/book-dir', function(err, container) {});
 
 // a Http container
 ocf.open('http://my.ebooks.service.org/ebook2/', function(err, container) {});
-```
-
-There is also a ```sync``` version of ```open``` function.
-```javascript
-var container = ocf.openSync('your container uri');
 ```
 
 
