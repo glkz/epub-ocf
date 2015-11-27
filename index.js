@@ -1,7 +1,4 @@
 var fs = require('fs');
-var DirectoryContainer = require('./lib/Directory');
-var ZipContainer = require('./lib/Zip');
-var HttpContainer = require('./lib/Http');
 
 var open = function(uri, options, cb) {
   if (typeof options === 'function') {
@@ -11,7 +8,7 @@ var open = function(uri, options, cb) {
 
   if (uri.indexOf('http://') === 0 || uri.indexOf('https://') === 0) {
     setTimeout(function() {
-      cb(null, http(uri, options));
+      http(uri, options, cb);
     }, 0);
 
     return ;
@@ -23,28 +20,20 @@ var open = function(uri, options, cb) {
     }
 
     if (stats.isFile()) {
-      return cb(null, zip(uri, options));
+      return zip(uri, options, cb);
     }
 
     if (stats.isDirectory()) {
-      return cb(null, dir(uri, options));
+      return dir(uri, options, cb);
     }
 
     return cb(new Error('No appropriate container handler found for ' + uri));
   });
 };
 
-var zip = function(uri, options) {
-  return new ZipContainer(uri, options);
-};
-
-var dir = function(uri, options) {
-  return new DirectoryContainer(uri, options);
-};
-
-var http = function(uri, options) {
-  return new HttpContainer(uri, options);
-};
+var zip = require('./lib/zip');
+var dir = require('./lib/dir');
+var http = require('./lib/http');
 
 module.exports = zip;
 module.exports.open = open;
