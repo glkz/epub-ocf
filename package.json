@@ -15,7 +15,8 @@
     "zip"
   ],
   "dependencies": {
-    "extend": "^2.0.0"
+    "extend": "^2.0.0",
+    "yauzl": "^2.3.1"
   },
   "devDependencies": {
     "mocha": "^2.1.0",
