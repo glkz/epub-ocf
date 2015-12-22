@@ -17,19 +17,23 @@ $ npm install --save epub-ocf
 
 ```javascript
 var ocf = require('epub-ocf');
-var container = ocf('path/to/epub.epub'); // ocf is an alias for ocf.zip
+ocf('example.epub', function(err, container) { // ocf is an alias for ocf.zip
+  container.readEntry("META-INF/container.xml", function(err, data) {    
+    console.log(err, data);
+  });
+});
 ```
 
 You can also create a container object from extracted epub directories.
 
 ```javascript
-var container = ocf.dir('path/to/extracted/epub/directory/');
+ocf.dir('path/to/extracted/epub/directory/', function(err, container) {});
 ```
 
 Or, epub directories served via http:
 
 ```javascript
-var container = ocf.http('http://my.ebooks.service.org/ebook2/');
+ocf.http('http://my.ebooks.service.org/ebook2/', function(err, container) {});
 ```
 
 
